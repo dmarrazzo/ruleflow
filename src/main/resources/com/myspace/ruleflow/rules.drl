@@ -1,0 +1,19 @@
+package com.myspace.ruleflow;
+
+rule "check 1"
+ruleflow-group "group1"
+when
+  String (this == "ok")
+then
+  System.out.println(kcontext.getRule().getName() + " fired");
+end
+
+rule "check 2"
+ruleflow-group "group2"
+no-loop
+when
+  ok : String (this == "ok")
+then
+  System.out.println(kcontext.getRule().getName() + " fired");
+  insert( new String("group2") );
+end
