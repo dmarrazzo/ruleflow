@@ -19,13 +19,11 @@ public class Test {
         KieContainer kContainer = kieServices.getKieClasspathContainer();
         
         KieSession kSession = kContainer.newKieSession();
-        
-        List<Command<?>> commands = new ArrayList<>();
-        commands.add(CommandFactory.newInsert(new String("ok")));
-        commands.add(CommandFactory.newInsert(new String("continue")));
-        commands.add(CommandFactory.newStartProcess("ruleflow.RuleFlow"));
-        
-        kSession.execute(CommandFactory.newBatchExecution(commands));
+
+        kSession.insert(new String("ok"));
+        // comment next line to test the gateway logic branch
+        kSession.insert(new String("continue"));
+        kSession.startProcess("ruleflow.RuleFlow");
         
         kSession.getFactHandles().forEach(f -> System.out.println(f));
         kSession.dispose();
