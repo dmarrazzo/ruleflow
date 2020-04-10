@@ -1,13 +1,8 @@
 package com.myspace.ruleflow;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.kie.api.KieServices;
-import org.kie.api.command.Command;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
-import org.kie.internal.command.CommandFactory;
 
 /**
 * Test
