@@ -1,5 +1,7 @@
 package com.myspace.ruleflow;
 
+import com.myspace.model.MyFact;
+
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
@@ -13,14 +15,25 @@ public class Test {
         KieServices kieServices = KieServices.Factory.get();
         KieContainer kContainer = kieServices.getKieClasspathContainer();
         
-        KieSession kSession = kContainer.newKieSession();
+        KieSession ksession = kContainer.newKieSession();
 
-        kSession.insert(new String("ok"));
-        // comment next line to test the gateway logic branch
-        kSession.insert(new String("continue"));
-        kSession.startProcess("ruleflow.RuleFlow");
+        ruleflow(ksession);
+        // salience(ksession);
         
-        kSession.getFactHandles().forEach(f -> System.out.println(f));
-        kSession.dispose();
+        System.out.println("WM after execution:");
+        ksession.getFactHandles().forEach(f -> System.out.println(ksession.getObject(f)));
+        ksession.dispose();
+    }
+
+    private static void ruleflow(KieSession ksession) {
+        ksession.insert(new String("ok"));
+        // comment next line to test the gateway logic branch
+        ksession.insert(new String("continue"));
+        ksession.startProcess("ruleflow.RuleFlow");
+    }
+
+    private static void salience(KieSession ksession) {
+        ksession.insert(new MyFact());
+        ksession.fireAllRules();
     }
 }
