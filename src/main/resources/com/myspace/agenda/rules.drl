@@ -1,18 +1,20 @@
-package com.myspace.salience;
+package com.myspace.agenda;
 
 import com.myspace.model.MyFact;
 
 rule "Rule A"
-salience 95
+enabled false
 when
    $fact : MyFact()
 then
    modify($fact) { setField1(true) };
    System.out.format("%s %s\n", kcontext.getRule().getName(), $fact);
+   drools.setFocus("Group B");
 end
 
 rule "Rule B"
-salience 100
+agenda-group "Group B"
+enabled false
 when
    $fact : MyFact()
 then

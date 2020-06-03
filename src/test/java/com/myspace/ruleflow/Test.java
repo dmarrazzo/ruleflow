@@ -1,5 +1,6 @@
 package com.myspace.ruleflow;
 
+import com.myspace.filter.PackageFilter;
 import com.myspace.model.MyFact;
 
 import org.kie.api.KieServices;
@@ -17,12 +18,18 @@ public class Test {
         
         KieSession ksession = kContainer.newKieSession();
 
-        ruleflow(ksession);
-        // salience(ksession);
+        // ruleflow(ksession);
+        salience(ksession);
+        // agenda(ksession);
         
         System.out.println("WM after execution:");
         ksession.getFactHandles().forEach(f -> System.out.println(ksession.getObject(f)));
         ksession.dispose();
+    }
+
+    private static void agenda(KieSession ksession) {
+        ksession.insert(new MyFact());
+        ksession.fireAllRules(new PackageFilter("com.myspace.agenda"));
     }
 
     private static void ruleflow(KieSession ksession) {
@@ -34,6 +41,8 @@ public class Test {
 
     private static void salience(KieSession ksession) {
         ksession.insert(new MyFact());
+        //ksession.fireAllRules(new PackageFilter("com.myspace.salience"));
+        
         ksession.fireAllRules();
     }
 }
