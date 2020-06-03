@@ -7,11 +7,25 @@
   <packaging>kjar</packaging>
   <name>rule flow</name>
   <description></description>
+  <properties>
+    <ba.version>7.7.0.redhat-00002</ba.version>
+    <version.org.kie>7.33.0.Final-redhat-00002</version.org.kie>
+  </properties>
+  <dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.redhat.ba</groupId>
+				<artifactId>ba-platform-bom</artifactId>
+				<version>${ba.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
   <dependencies>
     <dependency>
       <groupId>org.kie</groupId>
       <artifactId>kie-internal</artifactId>
-      <version>7.30.0.Final-redhat-00003</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -23,37 +37,31 @@
     <dependency>
       <groupId>org.kie</groupId>
       <artifactId>kie-api</artifactId>
-      <version>7.30.0.Final-redhat-00003</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.drools</groupId>
       <artifactId>drools-core</artifactId>
-      <version>7.30.0.Final-redhat-00003</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.drools</groupId>
       <artifactId>drools-decisiontables</artifactId>
-      <version>7.30.0.Final-redhat-00003</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.drools</groupId>
       <artifactId>drools-workbench-models-guided-dtable</artifactId>
-      <version>7.30.0.Final-redhat-00003</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.drools</groupId>
       <artifactId>drools-compiler</artifactId>
-      <version>7.30.0.Final-redhat-00003</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-bpmn2</artifactId>
-      <version>7.30.0.Final-redhat-00003</version>
       <scope>provided</scope>
     </dependency>
     <!-- Logging -->
@@ -74,7 +82,7 @@
       <plugin>
         <groupId>org.kie</groupId>
         <artifactId>kie-maven-plugin</artifactId>
-        <version>7.30.0.Final-redhat-00003</version>
+        <version>${version.org.kie}</version>
         <extensions>true</extensions>
       </plugin>
       <plugin>

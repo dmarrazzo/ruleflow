@@ -29,6 +29,7 @@ public class Test {
 
     private static void agenda(KieSession ksession) {
         ksession.insert(new MyFact());
+        ksession.getAgenda().getAgendaGroup("Group A").setFocus();
         ksession.fireAllRules(new PackageFilter("com.myspace.agenda"));
     }
 

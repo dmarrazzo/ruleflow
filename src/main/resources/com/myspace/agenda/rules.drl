@@ -3,7 +3,7 @@ package com.myspace.agenda;
 import com.myspace.model.MyFact;
 
 rule "Rule A"
-enabled false
+agenda-group "Group A"
 when
    $fact : MyFact()
 then
@@ -14,7 +14,6 @@ end
 
 rule "Rule B"
 agenda-group "Group B"
-enabled false
 when
    $fact : MyFact()
 then
