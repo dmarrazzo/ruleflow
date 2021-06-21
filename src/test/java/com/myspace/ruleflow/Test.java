@@ -18,8 +18,8 @@ public class Test {
         
         KieSession ksession = kContainer.newKieSession();
 
-        // ruleflow(ksession);
-        salience(ksession);
+        ruleflow(ksession);
+        // salience(ksession);
         // agenda(ksession);
         
         System.out.println("WM after execution:");

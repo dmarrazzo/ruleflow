@@ -5,7 +5,7 @@ import com.myspace.model.MyFact;
 rule "Rule A"
 salience 95
 when
-   $fact : MyFact()
+   $fact : MyFact( field1 == false )
 then
    modify($fact) { setField1(true) };
    System.out.format("%s %s\n", kcontext.getRule().getName(), $fact);
@@ -14,7 +14,7 @@ end
 rule "Rule B"
 salience 100
 when
-   $fact : MyFact()
+   $fact : MyFact( field1 == true )
 then
    modify($fact) { setField1(false) };
    System.out.format("%s %s\n", kcontext.getRule().getName(), $fact);
