@@ -7,15 +7,14 @@ Rule flow are BPMN model that contains rule tasks.
 
 ![flow](src/main/resources/com/myspace/ruleflow/ruleflow.RuleFlow-svg.svg)
 
-In `src/test/java/com/myspace/ruleflow/Test.java` the test code to start a rule flow and get back the results.
 
 Trigger the rule flow
 ------------------------
 
 ### Embedded API
 
-[src/test/java/com/myspace/ruleflow/Test.java]()
+[blob/master/src/test/java/com/myspace/ruleflow/Test.java]()
 
-### Kieserver API client
+### Kieserver client API
 
-[src/test/java/com/myspace/ruleflow/KieClient.java]()
+[blob/master/src/test/java/com/myspace/ruleflow/KieClient.java]()
