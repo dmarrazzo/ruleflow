@@ -41,7 +41,9 @@ public class KieClient {
 
             var commands = new ArrayList<Command<?>>();
             KieCommands commandsFactory = KieServices.Factory.get().getCommands();
+            commands.add(commandsFactory.newInsert(new String("ok")));
             commands.add(commandsFactory.newStartProcess(processId));
+            commands.add(commandsFactory.newGetObjects());
             BatchExecutionCommand batchExecution = commandsFactory.newBatchExecution(commands, "ksession");
 
             RuleServicesClient ruleClient = client.getServicesClient(RuleServicesClient.class);
