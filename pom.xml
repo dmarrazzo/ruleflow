@@ -1,27 +1,30 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.myspace</groupId>
+  <groupId>com.demo</groupId>
   <artifactId>ruleflow</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>kjar</packaging>
   <name>rule flow</name>
   <description></description>
   <properties>
-    <ba.version>7.7.0.redhat-00002</ba.version>
-    <version.org.kie>7.33.0.Final-redhat-00002</version.org.kie>
+    <ba.version>7.11.0.redhat-00005</ba.version>
+    <version.org.kie>7.52.0.Final-redhat-00007</version.org.kie>
+    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>com.redhat.ba</groupId>
-				<artifactId>ba-platform-bom</artifactId>
-				<version>${ba.version}</version>
-				<scope>import</scope>
-				<type>pom</type>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.redhat.ba</groupId>
+        <artifactId>ba-platform-bom</artifactId>
+        <version>${ba.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   <dependencies>
     <dependency>
       <groupId>org.kie</groupId>
@@ -62,6 +65,12 @@
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-bpmn2</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <!--  test -->
+    <dependency>
+      <groupId>org.kie.server</groupId>
+      <artifactId>kie-server-client</artifactId>
       <scope>provided</scope>
     </dependency>
     <!-- Logging -->
