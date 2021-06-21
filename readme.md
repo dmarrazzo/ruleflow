@@ -13,8 +13,8 @@ Trigger the rule flow
 
 ### Embedded API
 
-[blob/master/src/test/java/com/myspace/ruleflow/Test.java]()
+[Test.java](https://github.com/dmarrazzo/ruleflow/blob/master/src/test/java/com/myspace/ruleflow/Test.java)
 
 ### Kieserver client API
 
-[blob/master/src/test/java/com/myspace/ruleflow/KieClient.java]()
+[KieClient.java](https://github.com/dmarrazzo/ruleflow/blob/master/src/test/java/com/myspace/ruleflow/KieClient.java)
