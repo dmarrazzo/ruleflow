@@ -29,7 +29,7 @@ public class KieClient {
 
         long start = System.currentTimeMillis();
 
-        clientApp.ruleflow(null);
+        clientApp.ruleflow("ruleflow.RuleFlow");
 
         long end = System.currentTimeMillis();
         System.out.println("elapsed time: " + (end - start));
@@ -42,7 +42,7 @@ public class KieClient {
             var commands = new ArrayList<Command<?>>();
             KieCommands commandsFactory = KieServices.Factory.get().getCommands();
             commands.add(commandsFactory.newStartProcess(processId));
-            BatchExecutionCommand batchExecution = commandsFactory.newBatchExecution(commands, "default");
+            BatchExecutionCommand batchExecution = commandsFactory.newBatchExecution(commands, "ksession");
 
             RuleServicesClient ruleClient = client.getServicesClient(RuleServicesClient.class);
             ServiceResponse<ExecutionResults> results = ruleClient.executeCommandsWithResults(CONTAINER, batchExecution);
