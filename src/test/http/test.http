@@ -1,0 +1,32 @@
+# REST Client for VSCode humao.rest-client
+
+###
+POST http://localhost:8080/kie-server/services/rest/server/containers/instances/ruleflow_1.0.0-SNAPSHOT
+Content-Type: application/json
+Accept: application/json
+Authorization: Basic donato:donato
+
+{
+  "lookup" : "ksession",
+  "commands" : [ {
+    "insert" : {
+      "object" : "ok",
+      "out-identifier" : null,
+      "return-object" : true,
+      "entry-point" : "DEFAULT",
+      "disconnected" : false
+    }
+  }, {
+    "start-process" : {
+      "processId" : "ruleflow.RuleFlow",
+      "data" : null,
+      "parameter" : [ ],
+      "out-identifier" : null
+    }
+  }, {
+    "get-objects" : {
+      "class-object-filter" : null,
+      "out-identifier" : null
+    }
+  } ]
+}
